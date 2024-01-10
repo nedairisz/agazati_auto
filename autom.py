@@ -25,7 +25,7 @@ def beolvas():
         sor_adat=sorok.strip().split("$")
         nev=(sor_adat[0])
         gysz=(sor_adat[1])
-        auto=Auto(nev, gysz)
+        auto=Auto(nev, int(gysz))
         lista.append(auto)
         print(lista[i].nev, lista[i].gysz)
     return lista
@@ -41,5 +41,11 @@ def legfiatalabb(lista):
             legf_index=i
     return legf_index
 
-def atlag_kor():
-    
+def atlag_kor(lista):
+    szamlalo=0
+    gyujto=0
+    for i in range(0, len(lista), 1):
+        szamlalo+=1
+        gyujto+=2024-lista[i].gysz
+        atlag=gyujto/szamlalo
+    return atlag
